@@ -9,7 +9,13 @@ sudo apt-get -y install autoconf automake bison build-essential \
 
 aria2c -x 8 https://sourceforge.net/projects/raspberry-pi-cross-compilers/files/Raspberry%20Pi%20GCC%20Cross-Compilers/GCC%206.3.0/Raspberry%20Pi%202%2C%203/cross-gcc-6.3.0-pi_2-3.tar.gz
 tar axf cross-gcc-6.3.0-pi_2-3.tar.gz
-export PATH=$PATH:`pwd`/cross-pi-gcc-6.3.0-1/bin/
+sudo mkdir -p /opt
+sudo mv cross-pi-gcc-6.3.0-1 /opt
+
+#wtf
+temp="${PATH%\"}"
+temp="${temp#\"}"
+export PATH="${temp}:/opt/cross-pi-gcc-6.3.0-1/bin/"
 
 aria2c -x 8 http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.24.0.tar.bz2 && \
 	tar axf crosstool-ng-1.24.0.tar.bz2 && \
