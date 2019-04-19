@@ -26,3 +26,5 @@ aria2c -x 8 http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.24.0.ta
 	popd
 
 ct-ng build
+
+tar acf x-tools.tar.xz ~/x-tools
