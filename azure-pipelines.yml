@@ -7,3 +7,7 @@ jobs:
       - checkout: self
         clean: true
       - script: ./run.sh
+      - task: PublishPipelineArtifact@0
+        inputs:
+          artifactName: 'xtool'
+          targetPath: '/home/vsts/x-tools'
